@@ -1,7 +1,6 @@
 body{
   background-color: #1f1e1e;
   color: white;
-  overflow: hidden;
 }
 
 h1{
@@ -113,7 +112,7 @@ h1{
 }
 
 .del-icon{
-  font-size: 35px;
+  font-size: 25px;
   cursor: pointer;
 }
 .del-icon:hover{
@@ -121,10 +120,21 @@ h1{
 }
 
 .check-icon{
+  font-size: 20px;
+  margin-left: 10px;
+  color: rgb(0, 230, 122);
+  cursor: pointer;
+}
+.check-icon:hover{
+  color: rgb(4, 161, 88);
+}
+
+.edit-icon{
   font-size: 25px;
   margin-left: 10px;
   color: rgb(0, 230, 122);
+  cursor: pointer;
 }
-.check-icon:hover{
-  color: rgb(4, 196, 106);
+.edit-icon:hover{
+  color: rgb(4, 161, 88);
 }
