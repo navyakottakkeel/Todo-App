@@ -5,7 +5,7 @@ function TodoInput({
   setNewDescription,
   handleAddTodo,
   handleUpdateTodo,
-  editIndex
+  editIndex,
 }) {
   return (
     <div className="todo-input">

@@ -2,7 +2,13 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { GiCheckMark } from "react-icons/gi";
 import { MdOutlineModeEdit } from "react-icons/md";
 
-function TodoItem({ item, index, handleDeleteTodo, handleComplete, handleEdit }) {
+function TodoItem({
+  item,
+  index,
+  handleDeleteTodo,
+  handleComplete,
+  handleEdit,
+}) {
   return (
     <div className="todo-list-item">
       <div className="todo-content">
@@ -11,7 +17,6 @@ function TodoItem({ item, index, handleDeleteTodo, handleComplete, handleEdit })
       </div>
 
       <div className="todo-actions">
-
         <MdOutlineModeEdit
           className="edit-icon"
           onClick={() => handleEdit(index)}

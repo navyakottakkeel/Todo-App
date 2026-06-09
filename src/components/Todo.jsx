@@ -6,7 +6,6 @@ import TodoButtons from "./TodoButtons";
 import TodoItem from "./TodoItem";
 import CompletedItem from "./CompletedItem";
 
-
 function Todo() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
 
