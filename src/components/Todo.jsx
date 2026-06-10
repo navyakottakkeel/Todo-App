@@ -173,7 +173,13 @@ function Todo() {
 
   return (
     <div className="App">
-      <h1>My Todos</h1>
+      <div className="app-header">
+      <h1>
+    My <span>TodoFlow</span>
+  </h1>
+      <p>Plan • Track • Complete</p>
+      </div>
+      
 
       <div className="todo-wrapper">
         <TodoInput

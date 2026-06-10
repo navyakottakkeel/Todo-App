@@ -9,7 +9,7 @@ function TodoButtons({ isCompleteScreen, setIsCompleteScreen, allScreen, setAllS
         }}
       >
         Todo
-      </button>
+      </button>&nbsp;
 
       <button
         className={`secondaryBtn ${isCompleteScreen && !allScreen ? "active" : ""}`}
@@ -19,7 +19,7 @@ function TodoButtons({ isCompleteScreen, setIsCompleteScreen, allScreen, setAllS
         }}
       >
         Completed
-      </button>
+      </button>&nbsp;
 
       <button
         className={`secondaryBtn ${!isCompleteScreen && allScreen ? "active" : ""}`}
