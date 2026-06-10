@@ -5,6 +5,7 @@ import TodoInput from "./TodoInput";
 import TodoButtons from "./TodoButtons";
 import TodoItem from "./TodoItem";
 import CompletedItem from "./CompletedItem";
+import AllItem from "./AllItem";
 
 function Todo() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
@@ -16,6 +17,8 @@ function Todo() {
   const [newDescription, setNewDescription] = useState("");
 
   const [completedTodos, setCompletedTodos] = useState([]);
+
+  const [allScreen, setAllScreen] = useState(false);
 
   const [editIndex, setEditIndex] = useState(null);
 
@@ -126,6 +129,26 @@ function Todo() {
     );
   };
 
+  const handleDeleteAllTodo = (index, type) => {
+    if (type === "todo") {
+      const reducedTodo = [...allTodos];
+      reducedTodo.splice(index, 1);
+      setTodos(reducedTodo);
+
+      localStorage.setItem("todolist", JSON.stringify(reducedTodo));
+      return;
+    }
+
+    const reducedCompletedTodo = [...completedTodos];
+    reducedCompletedTodo.splice(index, 1);
+    setCompletedTodos(reducedCompletedTodo);
+
+    localStorage.setItem(
+      "completetodolist",
+      JSON.stringify(reducedCompletedTodo)
+    );
+  };
+
   useEffect(() => {
     const savedTodo = localStorage.getItem("todolist");
 
@@ -166,10 +189,13 @@ function Todo() {
         <TodoButtons
           isCompleteScreen={isCompleteScreen}
           setIsCompleteScreen={setIsCompleteScreen}
+          allScreen={allScreen}
+          setAllScreen={setAllScreen}
         />
 
         <div className="todo-list">
           {!isCompleteScreen &&
+            !allScreen &&
             allTodos.map((item, index) => (
               <TodoItem
                 key={index}
@@ -182,12 +208,36 @@ function Todo() {
             ))}
 
           {isCompleteScreen &&
+            !allScreen &&
             completedTodos.map((item, index) => (
               <CompletedItem
                 key={index}
                 item={item}
                 index={index}
                 handleDeleteCompleteTodo={handleDeleteCompleteTodo}
+              />
+            ))}
+
+          {!isCompleteScreen &&
+            allScreen &&
+            allTodos.map((item, index) => (
+              <AllItem
+                key={index}
+                item={item}
+                index={index}
+                type="todo"
+                handleDeleteAllTodo={handleDeleteAllTodo}
+              />
+            ))}
+          {!isCompleteScreen &&
+            allScreen &&
+            completedTodos.map((item, index) => (
+              <AllItem
+                key={index}
+                item={item}
+                index={index}
+                type="completed"
+                handleDeleteAllTodo={handleDeleteAllTodo}
               />
             ))}
         </div>
